@@ -1,0 +1,135 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Spot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Box.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Game.gd" type="Script" id=5]
+[ext_resource path="res://assets/yoster-island.regular.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 12
+font_data = ExtResource( 6 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 96, 48 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+zoom = Vector2( 0.25, 0.24 )
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 112, 32 )
+
+[node name="Wall10" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 128, 32 )
+
+[node name="Wall11" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 144, 32 )
+
+[node name="Wall13" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 176, 32 )
+
+[node name="Wall14" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 192, 32 )
+
+[node name="Wall15" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 192, 48 )
+
+[node name="Wall16" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 192, 64 )
+
+[node name="Wall17" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 192, 80 )
+
+[node name="Wall18" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 192, 96 )
+
+[node name="Wall12" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 160, 32 )
+
+[node name="Wall2" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 80, 64 )
+
+[node name="Wall3" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 160, 96 )
+
+[node name="Wall4" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 80, 48 )
+
+[node name="Wall5" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 128, 96 )
+
+[node name="Wall6" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 176, 96 )
+
+[node name="Wall7" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 144, 96 )
+
+[node name="Wall8" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 80, 80 )
+
+[node name="Wall19" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 80, 96 )
+
+[node name="Wall20" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 96, 96 )
+
+[node name="Wall21" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 80, 32 )
+
+[node name="Wall22" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 96, 32 )
+
+[node name="Wall9" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( 112, 96 )
+
+[node name="Boxes" type="Node2D" parent="."]
+
+[node name="Box" parent="Boxes" instance=ExtResource( 4 )]
+position = Vector2( 128, 64 )
+
+[node name="Spots" type="Node2D" parent="."]
+
+[node name="Spot" parent="Spots" instance=ExtResource( 2 )]
+position = Vector2( 176, 64 )
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+margin_left = 80.0
+margin_top = 32.0
+margin_right = 208.0
+margin_bottom = 96.0
+window_title = ":-D"
+dialog_text = "Level cleared!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 77.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 1 )
+text = "Level 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoveLabel" type="Label" parent="."]
+margin_left = 224.0
+margin_top = 16.0
+margin_right = 285.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 1 )
+text = "Moves: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="confirmed" from="AcceptDialog" to="." method="_on_AcceptDialog_confirmed"]
